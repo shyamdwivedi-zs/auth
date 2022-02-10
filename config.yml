@@ -1,0 +1,9 @@
+port: 7000
+
+oauthStateString: "state"
+google:
+  clientID: "963942052195-2pcilkb1kqiufkf63qb062rspjcs1lap.apps.googleusercontent.com"
+  clientSecret: "cxHEicOIBwsx0J8DmLShg9_R"
+#google:
+#  clientID: "310693608106-6crvhutbh6kpjmt6n05lsdi3v6js6vvd.apps.googleusercontent.com"
+#  clientSecret: "UINmn0D6Vab16Ov84pRBqRsc"
