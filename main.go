@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/spf13/viper"
+	configs "auth/config"
+	services "auth/google"
+	"auth/handler"
+	"fmt"
 	"log"
 	"net/http"
-	"testAuth/config"
-	services "testAuth/google"
-	"testAuth/handler"
-	"fmt"
+
+	"github.com/spf13/viper"
 )
 
 func main() {
@@ -44,4 +45,3 @@ func main() {
 //	return token, nil
 //}
 //
-

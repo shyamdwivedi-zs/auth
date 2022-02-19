@@ -24,10 +24,6 @@ func RecaptchaForm(w http.ResponseWriter, r *http.Request) {
                   <body>
                   <h1>Golang reCAPTCHA Signup Form</h1>
                   <form method="POST" action="/signup">
-                   Username : <input type="text" name="username">
-                   <br>
-                   Password : <input type="password" name="password">
-                   <br>
                    <div class="g-recaptcha" data-sitekey="6LcG3ckaAAAAALuyrJgq4RWTuKXaMP3sX4Ypyrx6"></div>
                    <br>
                    <input type="submit" value="Submit">
@@ -105,7 +101,22 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 		</head>
 		<body>
 		<h1>Golang reCAPTCHA Signup Form</h1>
-		<h6>Captcha: ` + response + `</h6>
+
+		<h5>Token:<h5>
+<textarea  rows="4" cols="50" id="myInput" disabled>` + response + `</textarea>
+<button onclick="myFunction()">Copy</button>
+<span id="copied"></span>
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  var s = document.getElementById("copied");
+  s.innerHTML = "Copied!!"
+}
+</script>
+
 		<a href="http://localhost:5000/">Back</a>
 		</body>
 		</html>`))

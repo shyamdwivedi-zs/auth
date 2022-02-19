@@ -1,12 +1,12 @@
 package google
 
 import (
+	"auth/handler"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
-	"testAuth/handler"
 	"text/template"
 
 	"github.com/spf13/viper"
