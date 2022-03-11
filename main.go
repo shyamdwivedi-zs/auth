@@ -1,6 +1,7 @@
 package main
 
 import (
+	"auth/captcha"
 	configs "auth/config"
 	services "auth/google"
 	"auth/handler"
@@ -23,9 +24,11 @@ func main() {
 	// Routes for the application
 	http.HandleFunc("/", handler.HandleMain)
 	http.HandleFunc("/login-gl", services.HandleGoogleLogin)
+	http.HandleFunc("/login-captcha", captcha.RecaptchaForm)
+	http.HandleFunc("/signup", captcha.Signup)
 	http.HandleFunc("/callback-gl", services.CallBackFromGoogle)
 
-	fmt.Println("Server Started @ 7000...")
+	fmt.Println("Server Started @ 7001...")
 	log.Fatal(http.ListenAndServe(":"+viper.GetString("port"), nil))
 }
 

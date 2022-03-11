@@ -1,4 +1,4 @@
-package main
+package captcha
 
 import (
 	"fmt"
@@ -101,7 +101,7 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 		</head>
 		<body>
 		<h1>Golang reCAPTCHA Signup Form</h1>
-
+		<h3><a href="/">Home</a></h3>
 		<h5>Token:<h5>
 <textarea  rows="4" cols="50" id="myInput" disabled>` + response + `</textarea>
 <button onclick="myFunction()">Copy</button>
@@ -125,10 +125,10 @@ function myFunction() {
 	}
 }
 
-func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", RecaptchaForm)
-	mux.HandleFunc("/signup", Signup)
+// func main() {
+// 	mux := http.NewServeMux()
+// 	mux.HandleFunc("/", RecaptchaForm)
+// 	mux.HandleFunc("/signup", Signup)
 
-	http.ListenAndServe(":5000", mux)
-}
+// 	http.ListenAndServe(":5000", mux)
+// }

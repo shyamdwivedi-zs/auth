@@ -12,6 +12,7 @@ const IndexPage = `
 		</p>
 		<ul>
 			<li><a href="/login-gl">Google</a></li>
+			<li><a href="/login-captcha">GoogleCaptcha</a></li>
 			<li><a href="/login-fb">Facebook</a></li>
 		</ul>
 	</body>
@@ -22,7 +23,7 @@ const TokenPage = `
 <!DOCTYPE html>
 <html>
 <body>
-<a href="/">Home</a>
+<h3><a href="/">Home</a></h3>
 <h3>Token Generated</h3>
 <h5>Token:<h5>
 <textarea  rows="4" cols="50" id="myInput" disabled>{{ .AccessToken }}</textarea>
