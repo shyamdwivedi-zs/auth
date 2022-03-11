@@ -28,7 +28,7 @@ func main() {
 	http.HandleFunc("/signup", captcha.Signup)
 	http.HandleFunc("/callback-gl", services.CallBackFromGoogle)
 
-	fmt.Println("Server Started @ 7001...")
+	fmt.Println("Server Started @ 7000...")
 	log.Fatal(http.ListenAndServe(":"+viper.GetString("port"), nil))
 }
 
