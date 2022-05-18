@@ -1,4 +1,4 @@
-port: 7000
+port: 8060
 
 oauthStateString: "state"
 google:

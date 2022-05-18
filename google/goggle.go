@@ -18,7 +18,7 @@ var (
 	oauthConfGl = &oauth2.Config{
 		ClientID:     "",
 		ClientSecret: "",
-		RedirectURL:  "http://localhost:7000/callback-gl",
+		RedirectURL:  "http://localhost:8060/callback-gl",
 		Scopes: []string{"https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/calendar",
 			"https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive", "https://mail.google.com/",
 			"https://www.googleapis.com/auth/gmail.addons.current.message.action", "https://www.googleapis.com/auth/gmail.addons.current.message.readonly",
@@ -70,22 +70,16 @@ func CallBackFromGoogle(w http.ResponseWriter, r *http.Request) {
 		// http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 	} else {
 		token, err := oauthConfGl.Exchange(oauth2.NoContext, code)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
 		fmt.Println(token.Expiry)
 		fmt.Println(token.TokenType)
 		fmt.Println()
 		fmt.Println("refresh token is --->", token.RefreshToken)
 		fmt.Println(token.AccessToken)
-		//fmt.Println(token.TokenType)
-		//fmt.Println(token.RefreshToken)
-		//fmt.Println(token.Expiry)
-		//fmt.Println("Access Token: ", token.AccessToken)
-		//fmt.Println("expiry: ", token.Expiry)
-		//fmt.Println("refrsh token: ", token.RefreshToken)
-		//fmt.Println("valid: ", token.Valid())
-		//fmt.Println(token.Extra("id_token"))
-		if err != nil {
-			return
-		}
 
 		resp, err := http.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token=" + url.QueryEscape(token.AccessToken))
 		if err != nil {
